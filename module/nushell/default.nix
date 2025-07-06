@@ -10,5 +10,9 @@
       rebuild = "sudo nixos-rebuild switch --impure --flake ~/.dotfiles/#myNixOS";
       nixconf = "sudo nvim ~/.dotfiles/host/thinkbookG5/configuration.nix";
     };
+    settings = {
+        show_banner = false;
+    };
+    extraConfig = "fastfetch";
   };
 }

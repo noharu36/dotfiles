@@ -4,7 +4,9 @@
   imports = [
     ../../module/anyrun
     ../../module/git
+    ../../module/starship
     ../../module/nushell
+    ../../module/fastfetch
     ../../module/neovim
     ../../module/wezterm
     ../../module/swayosd.nix
