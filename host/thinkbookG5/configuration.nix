@@ -77,6 +77,11 @@
   services.libinput.touchpad.naturalScrolling = true;
   services.libinput.mouse.naturalScrolling = true;
 
+  # サーバー化するための設定
+  services.logind.lidSwitch = "ignore";
+  services.logind.lidSwitchExternalPower = "ignore";
+  services.logind.lidSwitchDocked = "ignore";
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.harukun = {
     isNormalUser = true;

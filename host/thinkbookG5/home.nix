@@ -22,6 +22,7 @@
   
   home.packages = with pkgs; [
     waybar
+    bottom
     discord
     slack
     xwayland-satellite
