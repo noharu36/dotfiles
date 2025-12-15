@@ -1,1 +1,0 @@
-/home/harukun/.config/nvim/init.lua

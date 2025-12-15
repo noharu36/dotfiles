@@ -1,6 +1,8 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nix-darwin.url = "github:nix-darwin/nix-darwin/master";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -29,10 +31,26 @@
 	    home-manager.extraSpecialArgs = {
 	      inherit inputs;
 	    };
-	    home-manager.users.harukun = import ./host/thinkbookG5/home.nix;
+	    home-manager.users.harukun = import ./home/thinkbookG5.nix;
 	  }
 	];
       };
+    };
+
+    darwinConfigurations = {
+        myMacBook = inputs.nix-darwin.lib.darwinSystem {
+            system = "aarch64-darwin";
+            specialArgs = { inherit inputs; };
+            modules = [
+                ./hosts/macbook/configuration.nix
+
+                inputs.home-manager.darwinModules.home-manager {
+                    home-manager.useGlobalPkgs = true;
+                    home-manager.useUserPackages = true;
+                    home-manager.users.noharu = import ./home/macbook.nix;
+                }
+            ];
+        };
     };
   };
 }
