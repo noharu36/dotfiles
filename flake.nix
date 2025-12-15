@@ -1,8 +1,9 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
-    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs-darwin";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,7 +24,7 @@
 	modules = [
 	  ./overlays.nix
 
-	  ./host/thinkbookG5/configuration.nix
+	  ./hosts/thinkbookG5/configuration.nix
 
 	  inputs.home-manager.nixosModules.home-manager {
 	    home-manager.useGlobalPkgs = true;
