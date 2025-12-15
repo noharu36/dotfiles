@@ -1,24 +1,28 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
-    nix = {
-        settings = {
-            auto-optimise-store = true;
-            experimental-features = ["nix-command" "flakes"];
-        };
-        gc = {
-            automatic = true;
-            dates = "weekly";
-            options = "--delete-older-than 7d";
-        };
-    };
+#    nix = {
+#        enable = true;
+#        optimise.automatic = true;
+#        settings = {
+#            experimental-features = ["nix-command" "flakes"];
+#        };
+#        gc = {
+#            automatic = true;
+#            interval = { Weekday = 0; Hour = 0; Minute = 0; };
+#            options = "--delete-older-than 7d";
+#        };
+#    };
+    programs.zsh.enable = true;
+    nix.enable = false;
 
-    services.nix-daemon.enable = true;
+    nixpkgs.config.allowUnfree = true;
 
     environment.systemPackages = with pkgs; [
         git
         vim
     ];
+
 
     system.stateVersion = 5;
 }

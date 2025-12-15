@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
     imports = [
@@ -7,8 +7,10 @@
         ../module/starship
     ];
 
-    home.username = "noharu";
-    home.homeDirectory = "/Users/noharu"
+    # i18n.inputMethod.enabled = lib.mkForce null;
+
+    home.username = lib.mkForce "noharu";
+    home.homeDirectory = lib.mkForce "/Users/noharu";
 
     programs.zoxide = {
         enable = true;

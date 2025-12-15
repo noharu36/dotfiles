@@ -1,9 +1,9 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nix-darwin.url = "github:nix-darwin/nix-darwin/master";
-    nix-darwin.inputs.nixpkgs.follows = "nixpkgs-darwin";
+    # nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nix-darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-25.05";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -29,6 +29,7 @@
 	  inputs.home-manager.nixosModules.home-manager {
 	    home-manager.useGlobalPkgs = true;
 	    home-manager.useUserPackages = true;
+        home-manager.backupFileExtension = "backup";
 	    home-manager.extraSpecialArgs = {
 	      inherit inputs;
 	    };
@@ -41,16 +42,17 @@
     darwinConfigurations = {
         myMacBook = inputs.nix-darwin.lib.darwinSystem {
             system = "aarch64-darwin";
-            specialArgs = { inherit inputs; };
             modules = [
                 ./hosts/macbook/configuration.nix
 
                 inputs.home-manager.darwinModules.home-manager {
                     home-manager.useGlobalPkgs = true;
                     home-manager.useUserPackages = true;
+                    home-manager.backupFileExtension = "backup";
                     home-manager.users.noharu = import ./home/macbook.nix;
                 }
             ];
+            specialArgs = { inherit inputs; };
         };
     };
   };

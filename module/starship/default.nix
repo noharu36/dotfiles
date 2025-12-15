@@ -26,7 +26,7 @@
             };
             cmd_duration = {
                 format = " [ $duration]($style)";
-                min_time = 1_000;
+                min_time = 1000;
             };
         };
     };
