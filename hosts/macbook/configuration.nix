@@ -23,6 +23,10 @@
         vim
     ];
 
+    programs.nix-index-database.comma = {
+        enable = true;
+    };
+
 
     system.stateVersion = 5;
 }
