@@ -6,6 +6,7 @@
         ../module/git
         ../module/fastfetch
         ../module/starship
+        ../module/neovim
     ];
 
     # i18n.inputMethod.enabled = lib.mkForce null;
@@ -21,7 +22,8 @@
             "$GOPATH/bin"
             "/opt/homebrew/opt/llvm/bin"
             "$PYENV_ROOT/bin"
-        ];
+    ];
+
 
     programs.zoxide = {
         enable = true;
