@@ -1,6 +1,9 @@
 { pkgs, lib, ... }:
 
 {
+    imports = [
+        ./homebrew.nix
+    ];
 #    nix = {
 #        enable = true;
 #        optimise.automatic = true;
@@ -13,10 +16,12 @@
 #            options = "--delete-older-than 7d";
 #        };
 #    };
-    programs.zsh.enable = true;
     nix.enable = false;
-
     nixpkgs.config.allowUnfree = true;
+
+    system.primaryUser = "noharu";
+
+    programs.zsh.enable = true;
 
     environment.systemPackages = with pkgs; [
         git
@@ -26,7 +31,6 @@
     programs.nix-index-database.comma = {
         enable = true;
     };
-
 
     system.stateVersion = 5;
 }
