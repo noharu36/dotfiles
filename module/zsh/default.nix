@@ -50,8 +50,6 @@
                 fi
             fi
 
-            [[ -d ~/.rbenv ]] && eval "$(rbenv init -)"
-
             [ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
 
             if command -v go1.24.2 >/dev/null 2>&1; then

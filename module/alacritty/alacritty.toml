@@ -1,0 +1,21 @@
+[general]
+import = ["~/.dotfiles/module/alacritty/themes/catppuccin_macchiato.toml"]
+
+[env]
+TERM_PROGRAM = "alacritty"
+
+[window]
+dimensions = { columns = 200, lines = 60 }
+padding.x = 10
+padding.y = 10
+decorations = "Buttonless"
+opacity = 0.85
+blur = false
+option_as_alt = "Both"
+
+[terminal]
+osc52 = "CopyPaste"
+
+[font]
+normal.family = "3270 Nerd Font Mono"
+size = 14
