@@ -28,6 +28,7 @@
         ".config/wezterm/wezterm.lua".source = ../module/wezterm/wezterm.lua;
         ".config/rio/config.toml".source = ../module/rio/config.toml;
         ".config/rio/themes".source = ../module/rio/themes;
+        ".hushlogin".text = "";
     };
 
     home.packages = with pkgs; [
@@ -40,6 +41,7 @@
         sl
         sqlite
         tree
+        presenterm
     ];
 
     programs = {

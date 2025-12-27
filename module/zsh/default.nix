@@ -35,21 +35,6 @@
                 git ls-files | grep "\\.''${extension}$" | xargs wc -l
             }
 
-            if [[ "$TERM_PROGRAM" == "alacritty" ]]; then
-                ZELLIJ_AUTO_ATTACH=true
-                ZELLIJ_AUTO_EXIT=true
-                if [[ -z "$ZELLIJ" ]]; then
-                    if [[ "$ZELLIJ_AUTO_ATTACH" == "true" ]]; then
-                        zellij attach -c
-                    else
-                        zellij
-                    fi
-                    if [[ "$ZELLIJ_AUTO_EXIT" == "true" ]]; then
-                        exit
-                    fi
-                fi
-            fi
-
             [ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
 
             if command -v go1.24.2 >/dev/null 2>&1; then
@@ -64,6 +49,8 @@
             if command -v stack >/dev/null 2>&1; then
                 export PATH=$PATH:$(stack path --bin-path)
             fi
+
+            fastfetch
         '';
     };
 }
