@@ -1,4 +1,5 @@
-theme = "catppuccin-macchiato"
+# theme = "catppuccin-macchiato"
+theme = "gruvbox-dark"
 confirm-before-quit = false
 option-as-alt = "left"
 padding-x = 10
@@ -11,11 +12,15 @@ program = "nvim"
 size = 14
 family = "3270 Nerd Font Mono"
 
+[navigation]
+mode = "Bookmark"
+
 [window]
-opacity = 0.85
-width = 1200
-height = 800
-decorations = "Transparent"
+opacity = 0.65
+blur = true
+width = 1352
+height = 878
+decorations = "Buttonless"
 
 [bindings]
 keys = [
