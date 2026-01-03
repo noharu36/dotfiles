@@ -7,6 +7,11 @@
         ../module/fastfetch
         ../module/starship
         ../module/neovim
+        ../module/aerospace
+        ../module/sketchybar
+        ../module/jankyborders
+        ../module/alacritty
+        ../module/rio
     ];
 
     # i18n.inputMethod.enabled = lib.mkForce null;
@@ -23,11 +28,12 @@
             "$PYENV_ROOT/bin"
     ];
 
+    home.sessionVariables = {
+        XDG_CONFIG_HOME = "$HOME/.config";
+        CONFIG_DIR = "$HOME/.config";
+    };
+
     home.file = {
-        ".config/alacritty/alacritty.toml".source = ../module/alacritty/alacritty.toml;
-        ".config/wezterm/wezterm.lua".source = ../module/wezterm/wezterm.lua;
-        ".config/rio/config.toml".source = ../module/rio/config.toml;
-        ".config/rio/themes".source = ../module/rio/themes;
         ".hushlogin".text = "";
     };
 
@@ -56,5 +62,5 @@
         enableZshIntegration = true;
     };
 
-    home.stateVersion = "24.11";
+    home.stateVersion = "25.11";
 }

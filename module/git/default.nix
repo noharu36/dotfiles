@@ -3,7 +3,11 @@
 {
   programs.git = {
     enable = true;
-    userName = "noharu36";
-    userEmail = "todofamily_h@icloud.com";
+    settings = {
+        user = {
+            name = "noharu36";
+            email = "todofamily_h@icloud.com";
+        };
+    };
   };
 }
