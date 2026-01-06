@@ -1,13 +1,15 @@
 #!/bin/bash
 
 source "$CONFIG_DIR/colors.sh"
+source "$CONFIG_DIR/var.sh"
 
-PLUGIN_DIR="$CONFIG_DIR/plugins"
-ITEM_DIR="$CONFIG_DIR/items"
+AEROSPACE="/etc/profiles/per-user/noharu/bin/aerospace"
+FOCUSED=$("$AEROSPACE" list-workspaces --focused 2>/dev/null || echo "1")
 
 sketchybar --bar height=40 \
                  blur_radius=0 \
                  position=top \
+                 y_offset=7 \
                  sticky=off \
                  padding_left=10 \
                  padding_right=10 \
@@ -15,10 +17,10 @@ sketchybar --bar height=40 \
 
 sketchybar --add event aerospace_workspace_change
 
-sketchybar --default icon.font="3270 Nerd Font:Regular:14" \
+sketchybar --default icon.font="3270 Nerd Font:Regular:15" \
                      icon.color=$WHITE \
                      background.color=$ITEM_BG_COLOR \
-                     label.font="3270 Nerd Font:Regular:14" \
+                     label.font="3270 Nerd Font:Regular:15" \
                      label.color=$WHITE \
                      padding_left=5 \
                      padding_right=5 \
@@ -27,16 +29,20 @@ sketchybar --default icon.font="3270 Nerd Font:Regular:14" \
                      icon.padding_left=5 \
                      icon.padding_right=5
 
+sketchybar --hotload true
+
 # Left
-source $ITEM_DIR/workspace.sh
+source $ITEM_DIR/update.sh
+source $ITEM_DIR/aerospace.sh
+sketchybar --add item separator left \
+           --set separator label="|"
+
 source $ITEM_DIR/front_app.sh
 
 # Right
 source $ITEM_DIR/clock.sh
 source $ITEM_DIR/battery.sh
 
-AEROSPACE="/etc/profiles/per-user/noharu/bin/aerospace"
-FOCUSED=$("$AEROSPACE" list-workspaces --focused 2>/dev/null || echo "1")
 sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE="$FOCUSED"
 
 sketchybar --update

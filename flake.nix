@@ -20,6 +20,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     rust-overlay.url = "github:oxalica/rust-overlay";
+    mac-app-util.url = "github:hraban/mac-app-util";
   };
 
   outputs = inputs: {
@@ -50,12 +51,16 @@
             system = "aarch64-darwin";
             modules = [
                 inputs.nix-index-database.darwinModules.nix-index
+                inputs.mac-app-util.darwinModules.default
                 ./hosts/macbook/configuration.nix
 
                 inputs.home-manager-darwin.darwinModules.home-manager {
                     home-manager.useGlobalPkgs = true;
                     home-manager.useUserPackages = true;
                     home-manager.backupFileExtension = "backup";
+                    home-manager.sharedModules = [
+                        inputs.mac-app-util.homeManagerModules.default
+                    ];
                     home-manager.users.noharu = import ./home/macbook.nix;
                 }
             ];

@@ -12,9 +12,9 @@
         launchd.enable = true;
         settings = {
             exec-on-workspace-change = [
-                "/bin/zsh"
+                "/bin/bash"
                 "-c"
-                "sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$(/etc/profiles/per-user/noharu/bin/aerospace list-workspaces --focused)"
+                "/etc/profiles/per-user/noharu/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE"
             ];
             enable-normalization-flatten-containers = true;
             enable-normalization-opposite-orientation-for-nested-containers = true;

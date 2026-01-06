@@ -48,6 +48,7 @@
         sqlite
         tree
         presenterm
+        (callPackage ../module/antigravity {})
     ];
 
     programs = {
@@ -61,6 +62,14 @@
         enable = false;
         enableZshIntegration = true;
     };
+
+    home.activation.fixAntigravity = lib.hm.dag.entryAfter ["writeBoundary"] ''
+        app_path="$HOME/Applications/Home Manager Apps/Antigravity.app"
+
+        if [ -e "$app_path" ]; then
+            /usr/bin/xattr -cr "$app_path" || echo "Note: Failed to clear xattr. If the app doesn't open, run 'sudo xattr -cr ...' manually."
+        fi
+    '';
 
     home.stateVersion = "25.11";
 }

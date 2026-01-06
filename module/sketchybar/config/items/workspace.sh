@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source "$CONFIG_DIR/var.sh"
+
 sketchybar \
 	--add item workspace left \
 	--set workspace label="?" \

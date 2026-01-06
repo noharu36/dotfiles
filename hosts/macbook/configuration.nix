@@ -4,22 +4,16 @@
     imports = [
         ./homebrew.nix
     ];
-#    nix = {
-#        enable = true;
-#        optimise.automatic = true;
-#        settings = {
-#            experimental-features = ["nix-command" "flakes"];
-#        };
-#        gc = {
-#            automatic = true;
-#            interval = { Weekday = 0; Hour = 0; Minute = 0; };
-#            options = "--delete-older-than 7d";
-#        };
-#    };
     nix.enable = false;
     nixpkgs.config.allowUnfree = true;
 
     system.primaryUser = "noharu";
+
+    fonts.packages = with pkgs; [
+        nerd-fonts._3270       
+        nerd-fonts.hack
+        nerd-fonts.bigblue-terminal
+    ];
 
     programs.zsh.enable = true;
 

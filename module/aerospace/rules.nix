@@ -9,8 +9,8 @@
                 run = [ "move-node-to-workspace 1 "];
             }
             {
-                # arc
-                "if".app-id = "company.thebrowser.Browser";
+                # VSCode
+                "if".app-id = "com.microsoft.VSCode";
                 run = [ "move-node-to-workspace 2 "];
             }
             {
@@ -27,6 +27,11 @@
                 # obsidian
                 "if".app-id = "md.obsidian";
                 run = [ "move-node-to-workspace 4 "];
+            }
+            {
+                # arc
+                "if".app-id = "company.thebrowser.Browser";
+                run = [ "move-node-to-workspace 7 "];
             }
             {
                 # chrome

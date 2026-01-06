@@ -11,7 +11,10 @@
                 left = 0;
                 right = 0;
                 bottom = 0;
-                top = 10;
+                top = [
+                    { monitor."Panasonic-TV" = 35; }
+                    15
+                ];
             };
         };
     };

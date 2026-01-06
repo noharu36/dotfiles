@@ -22,6 +22,7 @@
             "rio"
             "utm"
             "wezterm@nightly"
+            "sf-symbols"
         ];
     };
 }
