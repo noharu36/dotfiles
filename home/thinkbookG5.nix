@@ -1,5 +1,8 @@
 { config, pkgs, inputs, ... }:
 
+let
+  cfg = import ../shared/config.nix;
+in
 {
   imports = [
     ../module/anyrun
@@ -15,10 +18,10 @@
     ../module/zed
   ];
 
-  home.username = "harukun";
-  home.homeDirectory = "/home/harukun";
+  home.username = lib.mkForce cfg.config.users.nixos.username;
+  home.homeDirectory = lib.mkForce cfg.config.users.nixos.homeDirectory;
 
-  home.stateVersion = "24.11";
+  home.stateVersion = lib.mkForce cfg.system.homeDirectory;
   
   home.packages = with pkgs; [
     waybar

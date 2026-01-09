@@ -16,9 +16,6 @@
 
     # i18n.inputMethod.enabled = lib.mkForce null;
 
-    home.username = lib.mkForce "noharu";
-    home.homeDirectory = lib.mkForce "/Users/noharu";
-
     home.sessionPath = [
             "/opt/homebrew/opt/openjdk/bin"
             "/opt/homebrew/opt/make/libexec/gnubin"
@@ -70,6 +67,4 @@
             /usr/bin/xattr -cr "$app_path" || echo "Note: Failed to clear xattr. If the app doesn't open, run 'sudo xattr -cr ...' manually."
         fi
     '';
-
-    home.stateVersion = "25.11";
 }

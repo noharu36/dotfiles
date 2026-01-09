@@ -23,7 +23,7 @@
     mac-app-util.url = "github:hraban/mac-app-util";
   };
 
-  outputs = inputs: {
+  outputs = { self, ... }@inputs: {
     nixosConfigurations = {
       myNixOS = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -46,13 +46,17 @@
       };
     };
 
+    homeManagerModules.my-mac-config = ./home/macbook.nix;
+    darwinModules.default = ./hosts/macbook/configuration.nix;
+
     darwinConfigurations = {
         myMacBook = inputs.nix-darwin.lib.darwinSystem {
             system = "aarch64-darwin";
             modules = [
                 inputs.nix-index-database.darwinModules.nix-index
                 inputs.mac-app-util.darwinModules.default
-                ./hosts/macbook/configuration.nix
+                # ./hosts/macbook/configuration.nix
+                self.darwinModules.default
 
                 inputs.home-manager-darwin.darwinModules.home-manager {
                     home-manager.useGlobalPkgs = true;
@@ -61,7 +65,17 @@
                     home-manager.sharedModules = [
                         inputs.mac-app-util.homeManagerModules.default
                     ];
-                    home-manager.users.noharu = import ./home/macbook.nix;
+                    home-manager.users.noharu = { lib, ... }:
+                    let
+                        cfg = import ./shared/config.nix;
+                    in
+                    {
+                        # imports = [ ./home/macbook.nix ];
+                        imports = [ self.homeManagerModules.my-mac-config ];
+                        home.username = lib.mkForce cfg.config.users.darwin.username;
+                        home.homeDirectory = lib.mkForce cfg.config.users.darwin.homeDirectory;
+                        home.stateVersion = lib.mkForce cfg.system.homeStateVersion;
+                    };
                 }
             ];
             specialArgs = { inherit inputs; };
