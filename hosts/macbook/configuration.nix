@@ -20,6 +20,7 @@
     environment.systemPackages = with pkgs; [
         git
         vim
+        rustup
     ];
 
     programs.nix-index-database.comma = {
