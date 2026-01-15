@@ -13,7 +13,7 @@
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
     nix-index-database.url = "github:nix-community/nix-index-database";
-    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs-darwin";
     anyrun.url = "github:anyrun-org/anyrun";
     niri = {
       url = "github:sodiboo/niri-flake";
@@ -70,7 +70,6 @@
                         cfg = import ./shared/config.nix;
                     in
                     {
-                        # imports = [ ./home/macbook.nix ];
                         imports = [ self.homeManagerModules.my-mac-config ];
                         home.username = lib.mkForce cfg.config.users.darwin.username;
                         home.homeDirectory = lib.mkForce cfg.config.users.darwin.homeDirectory;
