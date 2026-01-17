@@ -6,10 +6,10 @@ source "$CONFIG_DIR/var.sh"
 AEROSPACE="/etc/profiles/per-user/noharu/bin/aerospace"
 FOCUSED=$("$AEROSPACE" list-workspaces --focused 2>/dev/null || echo "1")
 
-sketchybar --bar height=40 \
+sketchybar --bar height=30 \
                  blur_radius=0 \
                  position=top \
-                 y_offset=3 \
+                 y_offset=5 \
                  sticky=off \
                  padding_left=10 \
                  padding_right=10 \
@@ -17,10 +17,10 @@ sketchybar --bar height=40 \
 
 sketchybar --add event aerospace_workspace_change
 
-sketchybar --default icon.font="3270 Nerd Font:Regular:15" \
+sketchybar --default icon.font="3270 Nerd Font:Regular:13" \
                      icon.color=$WHITE \
                      background.color=$ITEM_BG_COLOR \
-                     label.font="3270 Nerd Font:Regular:15" \
+                     label.font="3270 Nerd Font:Regular:13" \
                      label.color=$WHITE \
                      padding_left=5 \
                      padding_right=5 \

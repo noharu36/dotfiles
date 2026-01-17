@@ -13,7 +13,7 @@
                 bottom = 0;
                 top = [
                     { monitor."Panasonic-TV" = 35; }
-                    15
+                    10
                 ];
             };
         };
