@@ -3,7 +3,7 @@
 source "$CONFIG_DIR/colors.sh"
 source "$CONFIG_DIR/var.sh"
 
-AEROSPACE="/etc/profiles/per-user/noharu/bin/aerospace"
+AEROSPACE="$(which aerospace)"
 FOCUSED=$("$AEROSPACE" list-workspaces --focused 2>/dev/null || echo "1")
 
 sketchybar --bar height=30 \

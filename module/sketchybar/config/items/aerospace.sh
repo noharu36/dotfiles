@@ -14,9 +14,8 @@ for sid in "${SPACES[@]}"; do
       script="$PLUGIN_DIR/aerospace.sh $sid" \
       padding_left=2 \
       padding_right=2 \
-      label.padding_left=4 \
-      label.padding_right=4 \
-      background.height=30 \
-      background.corner_radius=13 \
-      background.drawing=off
+      label.padding_left=3 \
+      label.padding_right=3 \
+      background.height=20 \
+      background.corner_radius=11
 done
