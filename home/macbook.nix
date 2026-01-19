@@ -12,7 +12,9 @@
         ../module/jankyborders
         ../module/alacritty
         ../module/rio
+        ../module/antigravity
     ];
+
 
     # i18n.inputMethod.enabled = lib.mkForce null;
 
@@ -45,7 +47,6 @@
         sqlite
         tree
         presenterm
-        (callPackage ../module/antigravity {})
     ];
 
     programs = {
