@@ -19,6 +19,7 @@
         casks = [
             "alacritty"
             "obsidian"
+            "zen"
             "bruno"
             "rio"
             "utm"

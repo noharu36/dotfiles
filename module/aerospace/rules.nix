@@ -14,6 +14,11 @@
                 run = [ "move-node-to-workspace 2 "];
             }
             {
+                # antigravity
+                "if".app-id = "com.google.antigravity";
+                run = [ "move-node-to-workspace 2 "];
+            }
+            {
                 # slack
                 "if".app-id = "com.tinyspeck.slackmacgap";
                 run = [ "move-node-to-workspace 3 "];
@@ -28,6 +33,23 @@
                 "if".app-id = "md.obsidian";
                 run = [ "move-node-to-workspace 4 "];
             }
+            # -----------------another--------------------
+            {
+                # preview
+                "if".app-id = "com.apple.Preview";
+                run = [ "move-node-to-workspace 5 "];
+            }
+            {
+                # finder
+                "if".app-id = "com.apple.finder";
+                run = [ "move-node-to-workspace 5 "];
+            }
+            {
+                # mail
+                "if".app-id = "com.apple.mail";
+                run = [ "move-node-to-workspace 5 "];
+            }
+            # --------------------------------------------
             {
                 # arc
                 "if".app-id = "company.thebrowser.Browser";
