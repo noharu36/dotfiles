@@ -1,4 +1,9 @@
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -19,7 +24,7 @@
   home.homeDirectory = "/home/harukun";
 
   home.stateVersion = "24.11";
-  
+
   home.packages = with pkgs; [
     waybar
     bottom
@@ -36,17 +41,20 @@
 
   programs.google-chrome = {
     enable = true;
-    commandLineArgs = ["--enable-features=UseOzonePlatfor" "--ozone-platform=x11"];
+    commandLineArgs = [
+      "--enable-features=UseOzonePlatfor"
+      "--ozone-platform=x11"
+    ];
   };
 
   programs.zoxide = {
-      enable = true;
-      enableNushellIntegration = true;
+    enable = true;
+    enableNushellIntegration = true;
   };
 
   home.sessionVariables = {
     # SHELL = "nushell";
-    NIXOS_OZONE_WL="1";
+    NIXOS_OZONE_WL = "1";
     QT_QPA_PLATFORM = "wayland";
     SDL_VIDEODRIVER = "wayland";
     XDG_SESSION_TYPE = "wayland";

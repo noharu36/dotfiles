@@ -1,4 +1,4 @@
-{inputs, pkgs, ...}:
+{ inputs, pkgs, ... }:
 
 {
   imports = [
@@ -13,9 +13,9 @@
     package = pkgs.niri-unstable;
     settings = {
       environment = {
-        GTK_IM_MODULE   = "fcitx";
-	QT_IM_MODULE    = "fcitx";
-	XMODIFIERS      = "@im=fcitx";
+        GTK_IM_MODULE = "fcitx";
+        QT_IM_MODULE = "fcitx";
+        XMODIFIERS = "@im=fcitx";
         CLUTTER_BACKEND = "wayland";
         DISPLAY = ":0";
         GDK_BACKEND = "wayland,x11";
@@ -60,7 +60,7 @@
       prefer-no-csd = true;
 
       spawn-at-startup = [
-        {command = ["xwayland-satellite"];}
+        { command = [ "xwayland-satellite" ]; }
       ];
 
       screenshot-path = "~/Pictures/Screenshots/Screenshot-from-%Y-%m-%d-%H-%M-%S.png";

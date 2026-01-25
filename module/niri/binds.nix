@@ -1,4 +1,9 @@
-{config, inputs, pkgs, ...}:
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}:
 
 {
   programs.niri.settings.binds = with config.lib.niri.actions; {
@@ -10,7 +15,8 @@
     "XF86MonBrightnessUp".action = spawn "swayosd-client" "--brightness=raise";
     "XF86MonBrightnessDown".action = spawn "swayosd-client" "--brightness=lower";
     # "Print".action = screenshot-screen;
-    "Print".action = spawn "grim" "~/Pictures/ScreenShots/$(date +'Screenshot-from-%Y-%m-%d-%H-%M-%S.png')";
+    "Print".action =
+      spawn "grim" "~/Pictures/ScreenShots/$(date +'Screenshot-from-%Y-%m-%d-%H-%M-%S.png')";
     "Mod+Print".action = screenshot-window;
 
     # Running the App
@@ -19,7 +25,9 @@
     "Mod+Shift+Return".action = spawn "uwsm" "app" "--" "google-chrome-stable";
 
     # "Mod+Shift+S".action = screenshot;
-    "Mod+Shift+S".action = spawn "grim" "-g" "\"$(slurp)\"" "~/Pictures/ScreenShots/$(date +'Screenshot-from-%Y-%m-%d-%H-%M-%S.png')";
+    "Mod+Shift+S".action =
+      spawn "grim" "-g" "\"$(slurp)\""
+        "~/Pictures/ScreenShots/$(date +'Screenshot-from-%Y-%m-%d-%H-%M-%S.png')";
 
     # Window action
     "Mod+Shift+Q".action = close-window;
@@ -28,7 +36,7 @@
     "Mod+R".action = switch-preset-column-width;
     "Mod+Shift+R".action = switch-preset-window-height;
     "Mod+Ctrl+R".action = reset-window-height;
-    "Mod+Shift+E".action = quit {skip-confirmation = false;};
+    "Mod+Shift+E".action = quit { skip-confirmation = false; };
     "Mod+Shift+Slash".action = show-hotkey-overlay;
     "Mod+Shift+Space".action = toggle-window-floating;
     "Mod+Space".action = switch-focus-between-floating-and-tiling;

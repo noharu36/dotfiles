@@ -2,7 +2,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   imports = [
     inputs.anyrun.homeManagerModules.default
   ];
@@ -15,7 +16,7 @@
         rink
         shell
         symbols
-	websearch
+        websearch
       ];
 
       width.fraction = 0.25;

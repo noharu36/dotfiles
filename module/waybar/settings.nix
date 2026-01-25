@@ -1,34 +1,35 @@
-
 {
   config,
   pkgs,
   lib,
   ...
-}: let
+}:
+let
   custom = {
     font = "Adwaita Sans";
     font_size = "9pt";
     font_weight = "bold";
     opacity = "1";
     indicator_height = "2px";
-    color0 = "#1e1e2e";      # base
-    color1 = "#181825";      # mantle
-    color2 = "#313244";      # surf_0
-    color3 = "#45475a";      # surf_1
-    color4 = "#585b70";      # surf_2
-    color5 = "#cdd6f4";      # text
-    color6 = "#f5e0dc";      # rosewater
-    color7 = "#b4befe";      # lavender
-    color8 = "#f5c2e7";      # pink
-    color9 = "#fab387";      # peach
-    colora = "#f9e2af";      # yellow
-    colorb = "#a6e3a1";      # green
-    colorc = "#94e2d5";      # teal
-    colord = "#89b4fa";      # blue
-    colore = "#cba6f7";      # mauve
-    colorf = "#f38ba8";      # red
+    color0 = "#1e1e2e"; # base
+    color1 = "#181825"; # mantle
+    color2 = "#313244"; # surf_0
+    color3 = "#45475a"; # surf_1
+    color4 = "#585b70"; # surf_2
+    color5 = "#cdd6f4"; # text
+    color6 = "#f5e0dc"; # rosewater
+    color7 = "#b4befe"; # lavender
+    color8 = "#f5c2e7"; # pink
+    color9 = "#fab387"; # peach
+    colora = "#f9e2af"; # yellow
+    colorb = "#a6e3a1"; # green
+    colorc = "#94e2d5"; # teal
+    colord = "#89b4fa"; # blue
+    colore = "#cba6f7"; # mauve
+    colorf = "#f38ba8"; # red
   };
-in {
+in
+{
   programs.waybar = {
     systemd.enable = true;
     settings = with custom; [
@@ -54,7 +55,7 @@ in {
         modules-right = [
           "group/network-modules"
           "group/wireplumber-modules"
-#          "group/backlight-modules"
+          #          "group/backlight-modules"
           "group/battery-modules"
           "tray"
           "custom/notifications"
@@ -385,7 +386,7 @@ in {
       }
 
       #idle_inhibitor,
-      
+
       #network.icon {
         background: ${colorc};
         color: ${color2};
@@ -405,7 +406,7 @@ in {
       }
 
       #backlight.icon,
-      
+
       #battery.icon {
         background: ${colora};
         color: ${color2};
@@ -539,4 +540,3 @@ in {
     '';
   };
 }
-

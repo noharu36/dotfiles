@@ -1,31 +1,31 @@
 { pkgs, lib, ... }:
 
 {
-    imports = [
-        ./homebrew.nix
-    ];
-    nix.enable = false;
-    nixpkgs.config.allowUnfree = true;
+  imports = [
+    ./homebrew.nix
+  ];
+  nix.enable = false;
+  nixpkgs.config.allowUnfree = true;
 
-    system.primaryUser = "noharu";
+  system.primaryUser = "noharu";
 
-    fonts.packages = with pkgs; [
-        nerd-fonts._3270       
-        nerd-fonts.hack
-        nerd-fonts.bigblue-terminal
-    ];
+  fonts.packages = with pkgs; [
+    nerd-fonts._3270
+    nerd-fonts.hack
+    nerd-fonts.bigblue-terminal
+  ];
 
-    programs.zsh.enable = true;
+  programs.zsh.enable = true;
 
-    environment.systemPackages = with pkgs; [
-        git
-        vim
-        rustup
-    ];
+  environment.systemPackages = with pkgs; [
+    git
+    vim
+    rustup
+  ];
 
-    programs.nix-index-database.comma = {
-        enable = true;
-    };
+  programs.nix-index-database.comma = {
+    enable = true;
+  };
 
-    system.stateVersion = 5;
+  system.stateVersion = 5;
 }

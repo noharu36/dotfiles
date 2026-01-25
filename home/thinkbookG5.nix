@@ -1,4 +1,9 @@
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 let
   cfg = import ../shared/config.nix;
@@ -22,7 +27,7 @@ in
   home.homeDirectory = lib.mkForce cfg.config.users.nixos.homeDirectory;
 
   home.stateVersion = lib.mkForce cfg.system.homeDirectory;
-  
+
   home.packages = with pkgs; [
     waybar
     bottom
@@ -39,17 +44,20 @@ in
 
   programs.google-chrome = {
     enable = true;
-    commandLineArgs = ["--enable-features=UseOzonePlatfor" "--ozone-platform=x11"];
+    commandLineArgs = [
+      "--enable-features=UseOzonePlatfor"
+      "--ozone-platform=x11"
+    ];
   };
 
   programs.zoxide = {
-      enable = true;
-      enableNushellIntegration = true;
+    enable = true;
+    enableNushellIntegration = true;
   };
 
   home.sessionVariables = {
     # SHELL = "nushell";
-    NIXOS_OZONE_WL="1";
+    NIXOS_OZONE_WL = "1";
     QT_QPA_PLATFORM = "wayland";
     SDL_VIDEODRIVER = "wayland";
     XDG_SESSION_TYPE = "wayland";

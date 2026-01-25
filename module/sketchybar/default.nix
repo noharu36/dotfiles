@@ -1,18 +1,23 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
-    sketchybarConfig = pkgs.runCommand "sketchybar-config" {} ''
-        mkdir -p $out
-        cp -r ${./config}/* $out/
-        chmod -R +x $out
-    '';
+  sketchybarConfig = pkgs.runCommand "sketchybar-config" { } ''
+    mkdir -p $out
+    cp -r ${./config}/* $out/
+    chmod -R +x $out
+  '';
 in
 {
-    programs.sketchybar = {
-        enable = true;
-        config = {
-            recursive = true;
-            source = sketchybarConfig;
-        };
+  programs.sketchybar = {
+    enable = true;
+    config = {
+      recursive = true;
+      source = sketchybarConfig;
     };
+  };
 }

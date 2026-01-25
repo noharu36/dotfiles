@@ -1,4 +1,9 @@
-{config, pkgs, inputs, ...}:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   programs.nushell = {
@@ -11,7 +16,7 @@
       nixconf = "sudo nvim ~/.dotfiles/host/thinkbookG5/configuration.nix";
     };
     settings = {
-        show_banner = false;
+      show_banner = false;
     };
     extraConfig = "fastfetch";
   };

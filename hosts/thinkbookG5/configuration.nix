@@ -2,13 +2,18 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -36,9 +41,9 @@
   ];
 
   environment.sessionVariables = {
-    GTK_IM_MODULE  = "fcitx";
-    QT_IM_MODULE   = "fcitx";
-    XMODIFIERS     = "@im=fcitx";
+    GTK_IM_MODULE = "fcitx";
+    QT_IM_MODULE = "fcitx";
+    XMODIFIERS = "@im=fcitx";
     GLFW_IM_MODULE = "ibus";
   };
 
@@ -86,15 +91,23 @@
   users.users.harukun = {
     isNormalUser = true;
     description = "harukun";
-    extraGroups = [ "networkmanager" "wheel" "video" "docker"];
-    packages = with pkgs; [];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "video"
+      "docker"
+    ];
+    packages = with pkgs; [ ];
     shell = pkgs.nushell;
   };
 
   nix = {
     settings = {
       auto-optimise-store = true;
-      experimental-features = ["nix-command" "flakes"];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
     };
     gc = {
       automatic = true;
@@ -155,32 +168,33 @@
 
   nixpkgs.config.packageOverrides = pkgs: {
     steam = pkgs.steam.override {
-      extraPkgs = pkgs:
-        with pkgs; [
-  	  migu
-  	];
+      extraPkgs =
+        pkgs: with pkgs; [
+          migu
+        ];
     };
   };
 
   services.tailscale.enable = true;
   networking.firewall = {
     enable = true;
-    trustedInterfaces = ["tailscale0"];
-    allowedUDPPorts = [config.services.tailscale.port];
+    trustedInterfaces = [ "tailscale0" ];
+    allowedUDPPorts = [ config.services.tailscale.port ];
   };
 
-  services.greetd = let
-    session = {
-      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --cmd ${pkgs.niri-unstable}/bin/niri-session";
-      user = "harukun";
-    }; in {
-    enable = true;
-    settings = {
-      default_session = session;
+  services.greetd =
+    let
+      session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --cmd ${pkgs.niri-unstable}/bin/niri-session";
+        user = "harukun";
+      };
+    in
+    {
+      enable = true;
+      settings = {
+        default_session = session;
+      };
     };
-  };
-
-
 
   # List services that you want to enable:
 
