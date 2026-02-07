@@ -18,6 +18,7 @@
 
     casks = [
       "alacritty"
+      "antigravity"
       "obsidian"
       "zen"
       "bruno"

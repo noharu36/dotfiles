@@ -7,4 +7,4 @@ sketchybar --add item apple_logo left \
              icon="􀣺" \
              icon.font="SF Symbols:Bold:14" \
              icon.color="$ORANGE" \
-             click_script="sketchybar --update"
+             click_script="sketchybar --reload"
