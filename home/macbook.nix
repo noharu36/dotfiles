@@ -53,6 +53,7 @@
     tree
     presenterm
     just
+    nodejs_24
   ];
 
   programs = {
