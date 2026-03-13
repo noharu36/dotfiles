@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   lib,
   ...
@@ -53,6 +52,7 @@
     sqlite
     tree
     presenterm
+    just
   ];
 
   programs = {
