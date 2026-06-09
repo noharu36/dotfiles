@@ -11,7 +11,7 @@ source "$CONFIG_DIR/var.sh"
 # 7: Arc ブラウザ
 # 8: Chrome
 # 9: VMware Fusion (仮想マシン)
-# 10: 外部モニター
+# 10-11: 外部モニター
 declare -A WORKSPACE_ICONS
 WORKSPACE_ICONS[1]=""      # nf-dev-terminal
 WORKSPACE_ICONS[2]="󰨞"     # nf-md-microsoft_visual_studio_code
@@ -23,8 +23,9 @@ WORKSPACE_ICONS[7]="󰇧"     # nf-md-earth (ブラウザ/Arc)
 WORKSPACE_ICONS[8]=""      # nf-dev-chrome
 WORKSPACE_ICONS[9]="󰍺"     # nf-md-monitor_multiple (仮想マシン)
 WORKSPACE_ICONS[10]="󰍹"    # nf-md-monitor (外部モニター)
+WORKSPACE_ICONS[11]="󰍹"    # nf-md-monitor (外部モニター)
 
-SPACES=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10")
+SPACES=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10" "11")
 
 for sid in "${SPACES[@]}"; do
   ICON="${WORKSPACE_ICONS[$sid]}"

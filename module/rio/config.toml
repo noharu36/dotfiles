@@ -13,14 +13,14 @@ size = 14
 family = "3270 Nerd Font Mono"
 
 [navigation]
-mode = "Bookmark"
+mode = "Tab"
 
 [window]
-opacity = 0.65
+opacity = 0.1
 blur = true
 width = 1352
 height = 878
-decorations = "Buttonless"
+decorations = "Transparent"
 
 [bindings]
 keys = [

@@ -6,6 +6,7 @@
 
     onActivation = {
       cleanup = "zap";
+      extraFlags = [ "--force" ];
       autoUpdate = true;
       upgrade = true;
     };
@@ -14,6 +15,8 @@
       "jq"
       "yq"
       "go"
+      "weasyprint"
+      "katago"
     ];
 
     casks = [
@@ -26,6 +29,7 @@
       "utm"
       "wezterm@nightly"
       "sf-symbols"
+      "sabaki"
     ];
   };
 }

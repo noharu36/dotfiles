@@ -15,6 +15,7 @@
     ../module/sketchybar
     ../module/jankyborders
     ../module/alacritty
+    ../module/wezterm
     ../module/rio
     ../module/vscode
     ../module/antigravity

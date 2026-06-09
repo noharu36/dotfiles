@@ -5,7 +5,9 @@
     enable = true;
     defaultEditor = true;
     vimAlias = true;
+    withRuby = false;
+    withPython3 = false;
 
-    extraLuaConfig = builtins.readFile ./init.lua;
+    initLua = builtins.readFile ./init.lua;
   };
 }

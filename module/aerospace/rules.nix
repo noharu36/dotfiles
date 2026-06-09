@@ -11,6 +11,11 @@
         run = [ "move-node-to-workspace 1 " ];
       }
       {
+        # terminal
+        "if".app-id = "com.github.wez.wezterm";
+        run = [ "move-node-to-workspace 1 " ];
+      }
+      {
         # VSCode
         "if".app-id = "com.microsoft.VSCode";
         run = [ "move-node-to-workspace 2 " ];
@@ -55,6 +60,11 @@
       {
         # arc
         "if".app-id = "company.thebrowser.Browser";
+        run = [ "move-node-to-workspace 7 " ];
+      }
+      {
+        # zen
+        "if".app-id = "app.zen-browser.zen";
         run = [ "move-node-to-workspace 7 " ];
       }
       {

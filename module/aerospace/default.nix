@@ -34,6 +34,7 @@
         "8" = "main";
         "9" = "main";
         "10" = "secondary";
+        "11" = "secondary";
       };
     };
   };

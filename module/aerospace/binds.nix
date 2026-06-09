@@ -32,7 +32,8 @@
         # vmware
         alt-9 = "workspace 9";
         # 外部モニター
-        alt-0 = "workspace 10";
+        alt-a = "workspace 10";
+        alt-b = "workspace 11";
         alt-shift-1 = [
           "move-node-to-workspace 1"
           "workspace 1"
@@ -69,9 +70,13 @@
           "move-node-to-workspace 9"
           "workspace 9"
         ];
-        alt-shift-0 = [
+        alt-shift-a = [
           "move-node-to-workspace 10"
           "workspace 10"
+        ];
+        alt-shift-b = [
+          "move-node-to-workspace 11"
+          "workspace 11"
         ];
 
         alt-shift-minus = "resize smart -50";
