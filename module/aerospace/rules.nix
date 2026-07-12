@@ -22,7 +22,7 @@
       }
       {
         # antigravity
-        "if".app-id = "com.google.antigravity";
+        "if".app-id = "com.google.antigravity-ide";
         run = [ "move-node-to-workspace 2 " ];
       }
       {
