@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   lib,
   ...
@@ -36,6 +37,14 @@
   home.sessionVariables = {
     XDG_CONFIG_HOME = "$HOME/.config";
     CONFIG_DIR = "$HOME/.config";
+  };
+
+  sops = {
+      defaultSopsFile = ../secrets.yaml;
+      age.keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
+      age.generateKey = true;
+
+      secrets.SAKANA_API_KEY = {};
   };
 
   home.file = {

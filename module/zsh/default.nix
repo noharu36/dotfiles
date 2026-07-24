@@ -1,4 +1,5 @@
 {
+  config,
   ...
 }:
 
@@ -20,6 +21,12 @@
       LIBRARY_PATH = "$LIBRARY_PATH:/opt/homebrew/lib";
       PS1 = "@noharu %1~ %# ";
     };
+
+    envExtra = ''
+      if [ -f "${config.sops.secrets.SAKANA_API_KEY.path}" ]; then
+        export SAKANA_API_KEY="$(cat ${config.sops.secrets.SAKANA_API_KEY.path})"
+      fi
+    '';
 
     initContent = ''
       if [ "$(arch)" = "arm64" ]; then

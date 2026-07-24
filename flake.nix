@@ -21,6 +21,10 @@
     };
     rust-overlay.url = "github:oxalica/rust-overlay";
     mac-app-util.url = "github:hraban/mac-app-util";
+    sops-nix = {
+        url = "github:Mic92/sops-nix";
+        inputs.nixpkgs.follows = "nixpkgs-darwin";
+    };
   };
 
   outputs =
@@ -76,7 +80,10 @@
                   cfg = import ./shared/config.nix;
                 in
                 {
-                  imports = [ self.homeManagerModules.my-mac-config ];
+                  imports = [
+                    self.homeManagerModules.my-mac-config
+                    inputs.sops-nix.homeManagerModules.sops
+                  ];
                   home.username = lib.mkForce cfg.config.users.darwin.username;
                   home.homeDirectory = lib.mkForce cfg.config.users.darwin.homeDirectory;
                   home.stateVersion = lib.mkForce cfg.system.homeStateVersion;

@@ -1,0 +1,7 @@
+keys:
+  - &myMac age1chwqs49xxm7cdyu8q77s639v68lp5lqq8d9p4af2ufrc0upmuevsal0vpz
+creation_rules:
+  - path_regex: secrets\.yaml$
+    key_groups:
+    - age:
+      - *myMac
