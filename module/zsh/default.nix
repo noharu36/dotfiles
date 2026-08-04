@@ -26,6 +26,12 @@
       if [ -f "${config.sops.secrets.SAKANA_API_KEY.path}" ]; then
         export SAKANA_API_KEY="$(cat ${config.sops.secrets.SAKANA_API_KEY.path})"
       fi
+      if [ -f "${config.sops.secrets.TAVILY_API_KEY.path}" ]; then
+        export TAVILY_API_KEY="$(cat ${config.sops.secrets.TAVILY_API_KEY.path})"
+      fi
+      if [ -f "${config.sops.secrets.GEMINI_API_KEY.path}" ]; then
+        export GEMINI_API_KEY="$(cat ${config.sops.secrets.GEMINI_API_KEY.path})"
+      fi
     '';
 
     initContent = ''

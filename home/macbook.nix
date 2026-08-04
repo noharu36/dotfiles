@@ -45,6 +45,8 @@
       age.generateKey = true;
 
       secrets.SAKANA_API_KEY = {};
+      secrets.TAVILY_API_KEY = {};
+      secrets.GEMINI_API_KEY = {};
   };
 
   home.file = {
