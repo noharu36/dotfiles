@@ -8,6 +8,10 @@
     withRuby = false;
     withPython3 = false;
 
-    initLua = builtins.readFile ./init.lua;
+    initLua = ''
+        require("config.options")
+        require("config.keymaps")
+        require("config.lazy")
+    '';
   };
 }
