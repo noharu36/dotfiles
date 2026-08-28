@@ -67,7 +67,6 @@
     just
     tree-sitter
     nodejs_24
-    gcc
   ];
 
   programs = {

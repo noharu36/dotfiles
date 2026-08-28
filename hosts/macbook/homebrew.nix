@@ -16,7 +16,6 @@
       "yq"
       "go"
       "weasyprint"
-      "katago"
     ];
 
     casks = [
@@ -30,7 +29,6 @@
       "utm"
       "wezterm@nightly"
       "sf-symbols"
-      "sabaki"
     ];
   };
 }
